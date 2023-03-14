@@ -1,21 +1,2 @@
 #!/bin/bash
-
-# Define a function to count directories recursively
-count_directories() {
-    # Loop through all files and directories in the current directory
-    for file in *; do
-        # If the file is a directory and is not the current or parent directory
-        if [ -d "$file" ] && [ "$file" != "." ] && [ "$file" != ".." ]; then
-            # Increment the directory count
-            ((count++))
-          
-            cd "$file"
-            count_directories
-            cd ..
-        fi
-    done
-}
-
-count=0
-count_directories
-echo $count
+find . -type d ! -path . -print | wc -l

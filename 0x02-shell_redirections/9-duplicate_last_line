@@ -1,4 +1,2 @@
 #!/bin/bash
-
-last_line=$(tail -n 1 iacta); echo "$last_line" >> iacta
-
+cat ./iacta |tail --lines=1 >> iacta
