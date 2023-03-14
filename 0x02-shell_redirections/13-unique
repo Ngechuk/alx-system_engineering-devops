@@ -1,0 +1,15 @@
+#!/bin/bash
+
+declare -A freq
+while read -r word; do
+  ((freq[$word]++))
+done
+
+for word in "${!freq[@]}"; do
+  if (( freq[$word] == 1 )); then
+    echo "$word"
+  fi
+done | sort
+#cat list | ./unique.sh
+
+
